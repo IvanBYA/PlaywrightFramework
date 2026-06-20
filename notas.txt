@@ -1,0 +1,5 @@
+
+Script offline allure-report:
+--single-file: Esta opción es crucial. Instruye a Allure para empaquetar todo el reporte (datos, gráficos y estilos) en un único archivo index.html autocontenido. 
+--clean: Limpia reportes anteriores antes de generar el nuevo, asegurando que los datos sean frescos. 
+Eliminación de allure open: En modo offline real, no quieres que el comando intente abrir un servidor local (jetty) ni dependa de flags de seguridad del navegador. El comando ahora termina dejando el archivo listo para ser abierto manualmente con doble clic. 

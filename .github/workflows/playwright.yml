@@ -19,9 +19,9 @@ jobs:
       run: npx playwright install --with-deps
     - name: Run Playwright tests with POM
       run: npm run run-tests-WithPom
-    - name: Generate Allure Report
+    - name: Generate Allure Report (Single HTML File)
       if: ${{ !cancelled() }}
-      run: npm run allure:generate
+      run: npm run allure:generate-singlefile
     - name: Upload Allure Report
       if: ${{ !cancelled() }}
       uses: actions/upload-artifact@v4
