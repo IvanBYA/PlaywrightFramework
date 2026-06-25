@@ -3,6 +3,7 @@ import { faker } from '@faker-js/faker';
 import { HomePage } from '../../pages/HomePage';
 import { HeaderTagPage } from '../../pages/HeaderTagPage';
 import { SignUpPage } from '../../pages/SignUpPage';
+import { SignUpFormPage } from '../../pages/SignUpFormPage';
 
 test("TC_001_Fill Name And Email", async ({ page }, testInfo) => {
 
@@ -19,6 +20,7 @@ test("TC_001_Fill Name And Email", async ({ page }, testInfo) => {
   const homePage = new HomePage(page, testInfo);
   const headerTagPage = new HeaderTagPage(page, testInfo);
   const signUpPage = new SignUpPage(page, testInfo);
+  const signUpFormPage = new SignUpFormPage(page, testInfo);
 
   /* STEP 1 */
   await test.step(`Visit the URL: ${homePage.urlHomePage}`, async () => {
@@ -45,5 +47,25 @@ test("TC_001_Fill Name And Email", async ({ page }, testInfo) => {
   await test.step('Fill Name and Email', async () => {
     await signUpPage.fillNameAndEmail(objetoTestData.name, objetoTestData.email);
   })
+
+  /* STEP 6 */
+  await test.step('Click on SignUp Button', async () => {
+    await signUpPage.clickOnSignUpButton();
+  });
+
+  /* STEP 7 */
+  await test.step('Click on Mr Option', async () => {
+    await signUpFormPage.clickOnMrOptionGender();
+  })
+
+  /* STEP 8 */
+  await test.step('Fill Name Input', async () => {
+    await signUpFormPage.fillNameInput(objetoTestData.name);
+  })
+
+  /* STEP 9 */
+  await test.step('Validate Email Input', async () => {
+    await signUpFormPage.validateConsistencyOfDataEmailInput(objetoTestData.email);
+  });
 });
 

@@ -8,7 +8,7 @@
     "allure:open": "allure open allure-report",
     "full-test": "npm run run-tests-WithPom && npm run allure:generate && npm run allure:open",
     "allure:generate-singlefile": "allure generate allure-results --clean --single-file -o allure-report",
-    "full-test-offline": "npm run run-tests-WithPom && npx allure generate allure-results --clean --single-file -o allure-report"
+    "full-test-offline": "npm run run-tests-WithPom && npm run allure:generate-singlefile"
   },
   "keywords": [],
   "author": "",

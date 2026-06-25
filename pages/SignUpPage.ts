@@ -15,6 +15,7 @@ export class SignUpPage {
     private readonly newUserSignUpText = "//h2[normalize-space()='New User Signup!']";
     private readonly nameInput = "input[placeholder='Name']";
     private readonly emailInput = "[data-qa='signup-email']";
+    private readonly btnSignup = "button[data-qa='signup-button']";
 
     /**
      * Constructor de la clase SignUpPage
@@ -51,5 +52,16 @@ export class SignUpPage {
         await expect(this.page.locator(this.nameInput)).toHaveValue(name);
         await expect(this.page.locator(this.emailInput)).toHaveValue(email);
         await this.screenshotUtils.take('nameAndEmailAdded');
+    }
+
+    /**
+     * Metodo para hacer click en el boton SignUp
+     * @date 24/06/2026
+     * @author Ivan
+     */
+    async clickOnSignUpButton()
+    {
+        await this.page.locator(this.btnSignup).click();
+        await this.screenshotUtils.take('clickOnSignUpButton');
     }
 }

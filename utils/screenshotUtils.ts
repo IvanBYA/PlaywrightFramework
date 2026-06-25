@@ -41,15 +41,8 @@ export class ScreenshotUtils
      * @returns El ID del test (ej: "TC_001") o el nombre del archivo sin extensión si no se encuentra el ID
      */
     private extractTestId(filePath: string): string {
-        const nombreDelArchivo = path.basename(filePath);
-        const match = nombreDelArchivo.match(/^(TC_\d+)/);
-        
-        if (match) {
-            return match[1];
-        } else {
-            // Usar el nombre del archivo sin extensión como ID
-            return nombreDelArchivo.replace('.spec.ts', '');
-        }
+        const nombreDelArchivo = path.basename(filePath);        
+        return nombreDelArchivo.replace('.spec.ts', '');
     }
 
     /**
